@@ -18,7 +18,7 @@ function main(params) {
             } else {
                 try {
                     var weatherData = JSON.parse(body);
-                    resolve(weatherData);
+                    resolve({weatherData:weatherData});
                 } catch (ex) {
                     reject('Error occurred while parsing weather data.');
                 }
