@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Starting the 🚲 finder..")
+	fmt.Println("Starting the \xF0\x9F\x9A\xB2 finder..")
 	http.HandleFunc("/", FindBikes)
 	fmt.Println("Function handlers are registered.")
 
