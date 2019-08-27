@@ -1,0 +1,9 @@
+{
+  "name": "daily-joker",
+  "description": "",
+  "main": "handler.js",
+    "dependencies": {
+    "node-fetch": "^2.2.1",
+    "slack-node": "0.1.8"
+  }
+}
