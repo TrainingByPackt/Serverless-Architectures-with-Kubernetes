@@ -1,0 +1,14 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://192.168.99.100:31112
+functions:
+  form-processor:
+    lang: python3
+    handler: ./form-processor
+    image: sathsarasa/form-processor:latest
+    environment:
+      read_timeout: 20
+      write_timeout: 20
+      exec_timeout: 20
+

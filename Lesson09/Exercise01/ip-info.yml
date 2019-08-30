@@ -1,0 +1,9 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://192.168.99.100:31112
+functions:
+  ip-info:
+    lang: python3
+    handler: ./ip-info
+    image: sathsarasa/ip-info:latest

@@ -1,0 +1,12 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://192.168.99.100:31112
+functions:
+  serverless-website:
+    lang: php7
+    handler: ./serverless-website
+    image: sathsarasa/serverless-website:latest
+    environment:
+      content_type: text/html
+

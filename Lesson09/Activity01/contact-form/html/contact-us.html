@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OpenFaaS Contact Us  Form</title>
+                
+    <style>
+      /** Page  background colour */
+      body  {
+        background-color: #f2f2f2;
+      }  
+    
+      /** Style the h1  headers */
+      h1 {  
+        text-align: center;
+        font-family: Arial;
+      }
+        
+      /** CSS for the input box and textarea */
+      input[type=text], input[type=email], textarea {
+        width: 100%; 
+        margin-top: 10px;   
+        margin-bottom: 20px; 
+        padding: 12px; 
+        box-sizing: border-box; 
+        resize: vertical 
+      }   
+        
+      /** Style the submit  button */
+      input[type=submit] {
+        color: white;
+        background-color: #5a91e8;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+ 
+      /** Change submit button  color for mouse hover */
+      input[type=submit]:hover  {
+        background-color: #2662bf;
+      }
+        
+      /** Add padding around the form */
+      .container {
+        padding: 20px;
+        border-radius: 5px;
+      } 
+	
+	  /** Bold font for response and add margin */
+	  #response { 
+	    font-weight: bold;
+		margin-bottom: 20px; 
+	  }
+      </style>
+    </head>
+  
+    <body>
+      <h1>OpenFaaS Contact Form</h1>
+        
+      <div class="container">
+		<!-- Placeholder for the response -->
+        <div id='response'></div>
+		  
+        <form id="contact_us_form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+ 
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+ 
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+ 
+          <input type="submit" value="Send Message">
+        </form>
+      </div>  
+        
+      <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script>     
+        $(document).ready(function(){
+          $('#contact_us_form').on('submit', function(e){
+        
+            // prevent form from submitting.
+            e.preventDefault();
+			  
+			$('#response').html('Sending message...');
+                 
+            // retrieve values from the form    field
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var message = $('#message').val();
+          
+            var formData = {
+              name: name,
+              email: email,
+              message: message
+            };
+         
+            // send the ajax POST request         
+            $.ajax({
+              type: "POST",
+              url: './form-processor',
+              data: JSON.stringify(formData)
+            })
+            .done(function(data) {
+              $('#response').html(data);
+            })
+            .fail(function(data) {
+              $('#response').html(data);
+            });
+          
+          });
+        });
+        </script>
+        
+    </body>
+</html> 
+
