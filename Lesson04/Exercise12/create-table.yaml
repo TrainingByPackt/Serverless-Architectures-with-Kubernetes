@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-table
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: create
+        image: mysql:5.7
+        args:
+         - /bin/sh
+         - -c
+         - mysql -h my-database -u user -ppassword db -e 'CREATE TABLE IF NOT EXISTS messages (id INT)';
