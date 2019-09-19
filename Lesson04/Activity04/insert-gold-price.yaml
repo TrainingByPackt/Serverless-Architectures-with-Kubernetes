@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gold-price-to-mysql
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: insert
+            image: onuryilmaz/gold-price-to-mysql
+            env:
+            - name: MYSQL_ADDRESS
+              value: "gold-price-db:3306"
+            - name: MYSQL_DATABASE
+              value: "db"
+            - name: MYSQL_USER
+              value: "user"
+            - name: MYSQL_PASSWORD
+              value: "password"
+            - name: API_KEY
+              value: "370abd4e39e18cabf607a8206726d570"
