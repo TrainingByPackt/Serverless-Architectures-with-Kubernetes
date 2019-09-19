@@ -11,7 +11,7 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: insert
-            image: onuryilmaz/gold-price-to-mysql
+            image: <USERNAME>/gold-price-to-mysql
             env:
             - name: MYSQL_ADDRESS
               value: "gold-price-db:3306"
@@ -22,4 +22,4 @@ spec:
             - name: MYSQL_PASSWORD
               value: "password"
             - name: API_KEY
-              value: "370abd4e39e18cabf607a8206726d570"
+              value: "<API-KEY>"
