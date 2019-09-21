@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Route
+metadata:
+  name: canary-deployment
+  namespace: default 
+spec:
+  traffic:
+    - revisionName: canary-deployment-xgvl8
+      percent: 50 
+    - revisionName: canary-deployment-8pp4s
+      percent: 50 
+

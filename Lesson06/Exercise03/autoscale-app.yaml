@@ -1,0 +1,15 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: autoscale-app
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        metadata:
+          annotations:
+            autoscaling.knative.dev/target: "10"
+        spec:
+          container:
+            image: "gcr.io/knative-samples/autoscale-go:0.1"
+
