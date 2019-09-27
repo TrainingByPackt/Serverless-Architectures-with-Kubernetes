@@ -3,7 +3,7 @@ const request = require('request');
 function main(params) {
  
     const cityName = params.cityName
-    const openWeatherApiKey = '3855a05d3fa3171bbb852a6b44087108';
+    const openWeatherApiKey = '<OPEN_WEATHER_API_KEY>';
     const openWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&mode=json&units=metric&appid=' + openWeatherApiKey ;
  
     return new Promise(function(resolve, reject) {
