@@ -1,5 +1,5 @@
 {
-  "name": "daily-joker",
+  "name": "daily-weather",
   "description": "",
   "main": "handler.js",
     "dependencies": {
