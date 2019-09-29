@@ -5,9 +5,10 @@ provider:
   runtime: nodejs8.10
 
 functions:
-  joker:
+  weather:
     handler: handler.weather
     events:
-      - schedule: cron(0 8 * * 1-5)
+      - schedule: cron(0 8 ? * 1-5 *)
     environment:
+      CITY: Berlin
       SLACK_WEBHOOK_URL: https://hooks.slack.com/services/.../.../...
