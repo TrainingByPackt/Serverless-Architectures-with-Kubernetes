@@ -1,4 +1,4 @@
-service: daily-joker
+service: daily-weather
 
 provider:
   name: aws
@@ -6,8 +6,8 @@ provider:
 
 functions:
   joker:
-    handler: handler.joker
+    handler: handler.weather
     events:
-      - schedule: rate(5 hours)
+      - schedule: cron(0 8 * * 1-5)
     environment:
-      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/...
+      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/.../.../...
