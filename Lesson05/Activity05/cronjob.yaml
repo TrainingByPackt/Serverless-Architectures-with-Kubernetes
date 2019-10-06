@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: backend-checker
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: checker
+            image: appropriate/curl
+            args:
+            - curl
+            - -I
+            - backend
+          nodeSelector:
+            cloud.google.com/gke-nodepool: "preemptible"
+          tolerations:
+          - key: preemptible
+            operator: Equal
+            value: "true"
+            effect: NoSchedule
+          restartPolicy: OnFailure
