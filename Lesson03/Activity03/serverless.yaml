@@ -1,13 +1,14 @@
-service: daily-joker
+service: daily-weather
 
 provider:
   name: aws
   runtime: nodejs8.10
 
 functions:
-  joker:
-    handler: handler.joker
+  weather:
+    handler: handler.weather
     events:
-      - schedule: rate(5 hours)
+      - schedule: cron(0 8 ? * 1-5 *)
     environment:
-      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/...
+      CITY: Berlin
+      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/.../.../...

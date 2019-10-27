@@ -1,25 +1,28 @@
 const fetch = require('node-fetch');
 const Slack = require('slack-node');
 
-module.exports.joker = (event, context, callback) => {
+module.exports.weather = (event, context, callback) => {
 
     const webhookUri = process.env.SLACK_WEBHOOK_URL;
+    const location = process.env.CITY;
 
     const slack = new Slack();
     slack.setWebhook(webhookUri);
 
-    fetch('https://icanhazdadjoke.com/slack')
-        .then(response => response.json())
+    weatherURL = "http://wttr.in/" + encodeURIComponent(location) + "?m&&format=1"
+
+    console.log(weatherURL)
+
+    fetch(weatherURL)
+        .then(response => response.text())
         .then(data => {
 
-            joke = data.attachments[0]
-
-            console.log("======== JOKE TEXT ========")
-            console.error(joke.text);
-            console.log("======== JOKE TEXT ========")
+            console.log("======== WEATHER TEXT ========")
+            console.error(data);
+            console.log("======== WEATHER TEXT ========")
 
             slack.webhook({
-                text: joke.text
+                text: "Current weather status is " + data
             }, function(err, response) {
                 console.log("======== SLACK SEND STATUS ========")
                 console.error(response.status);
