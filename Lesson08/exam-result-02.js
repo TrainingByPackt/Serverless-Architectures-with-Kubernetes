@@ -1,13 +1,13 @@
 function main(params) {
     var examResult = '';
  
-    if (params.examMarkes < 0 || params.examMarkes > 100) {
+    if (params.examMarks < 0 || params.examMarks > 100) {
         examResult = 'ERROR: invalid exam mark';
-    } else if (params.examMarkes > 80) {
+    } else if (params.examMarks > 80) {
         examResult = 'Pass with grade A';
-    } else if (params.examMarkes > 70) {
+    } else if (params.examMarks > 70) {
         examResult = 'Pass with grade B';
-    } else if (params.examMarkes > 60) {
+    } else if (params.examMarks > 60) {
         examResult = 'Pass with grade C';
     } else {
 		examResult = 'Fail';
