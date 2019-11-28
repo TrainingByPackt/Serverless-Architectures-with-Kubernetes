@@ -10,7 +10,7 @@
 Create production-ready Kubernetes clusters and run serverless applications on them.
 Kubernetes has established itself as the standard platform for container management, orchestration, and deployment. By learning Kubernetes, you’ll be able to design your own serverless architecture by implementing the function-as-a-service (FaaS) model.
 
-After an accelerated, hands-on overview of the serverless architecture and various Kubernetes concepts, you’ll cover a wide range of real-world development challenges faced by real-world developers, and explore various techniques to overcome them. You’ll learn how to create production-ready Kubernetes clusters and run serverless applications on them. You'll see how Kubernetes platforms and serverless frameworks such as Kubeless, Apache OpenWhisk, OpenFaaS, and Funktion provide the tooling to help you develop serverless applications on Kubernetes. You'll also learn ways to select the appropriate framework for your upcoming project.
+After an accelerated, hands-on overview of the serverless architecture and various Kubernetes concepts, you’ll cover a wide range of real-world development challenges faced by real-world developers, and explore various techniques to overcome them. You’ll learn how to create production-ready Kubernetes clusters and run serverless applications on them. You'll see how Kubernetes platforms and serverless frameworks such as Kubeless, Apache OpenWhisk and OpenFaaS provide the tooling to help you develop serverless applications on Kubernetes. You'll also learn ways to select the appropriate framework for your upcoming project.
 
 By the end of this book, you’ll have the skills and confidence to design your own serverless applications using the power and flexibility of Kubernetes.
 
